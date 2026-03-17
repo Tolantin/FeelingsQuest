@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/deliusswashcaps/v1/6xK4b7f3j8c5a9z5e8d5e8d5e8d5e8d5.woff2">
+    <link rel="preload" as="image" href="wp13346591.webp">
+    <link rel="preload" as="image" href="background-tlou.png">
+    <link rel="preload" as="image" href="background-undertale.jpg">
+    <link rel="preload" as="image" href="background-detroit-become-human.png">
+    <link rel="preload" as="video" href="Edit jeux vidéos.mp4">
+    <link rel="preload" as="video" href="compilation-paysages-tlou.mp4">
+    <link rel="preload" as="video" href="video-undertale.mp4">
+    <link rel="preload" as="video" href="detroit-qte.mp4">
+    <link rel="preload" as="video" href="video-detroit-edit.mp4">
+    <link rel="preload" as="image" href="The Last of us designer.JPG">
+    <link rel="preload" as="image" href="undertale-phone-720-x-1280-wallpaper-flp2o9gykk3172l9.jpg">
+    <link rel="preload" as="image" href="detroit_9-16.jpg">
+    <link rel="preload" as="image" href="image-undertale-sans.png">
+    <link rel="preload" as="image" href="image-undertale-dog.png">
+    <link rel="preload" as="image" href="image-detroit-markus.png">
+    <link rel="preload" as="image" href="image-detroit-kara.png">
+    <link rel="preload" as="image" href="image-detroit-connor.png">
+    <link rel="preload" as="image" href="image-detroit-flowchart.png">
+    <link rel="preload" as="image" href="image-detroit-qte.png">
+    <link rel="preload" as="image" href="image-detroit-characters.png">
+    <link rel="preload" as="image" href="image-detroit-edit.png">
+    <link rel="preload" as="image" href="image-undertale-dog.png">
+    <link rel="preload" as="image" href="image-undertale-sans.png">
+    <style>
+
+
+        /* Définition des polices de caractères */
+        :root {        
+            --font-head:"Delius Swash Caps";
+            --font-body:"Exo 2";
+        }
+
+        /* Pour que le scroll soit fluide */
+        html {scroll-behavior:smooth;}
+
+        /* Pour que le texte soit lisible */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            font-size: clamp(18px, 0.75vw, 30px); /* Taille de police responsive */
+        }
+
+        /* Pour que le header, main et footer soient empilés */
+        main {
+            flex:1;                /* prend toute la place disponible       */
+        }
+
+        /* Pour que les titres soient jolis */
+        a {
+            text-decoration: none; /* Pour enlever le soulignement des liens */
+            color: inherit; /* Pour que les liens prennent la couleur du texte */
+        }
+
+        /* Titres principaux */
+        h2{
+            font-family: var(--font-body);
+            font-size: clamp(2rem, 2.3vw, 3.5rem);
+            margin-bottom: 2vh;
+            text-align: left;
+        }
+
+        /* Titres secondaires */
+        h3{
+            font-family: var(--font-body);
+            font-size: clamp(1.75rem, 1.5vw, 2.5rem);
+            margin-top: 5vh;
+            margin-bottom: 2.5vh;
+            text-align: left;
+        }
+
+        /* Pour que le fond soit joli */
+        body {
+            background-image: url("wp13346591.webp");
+            background-size: cover; /* Pour que ça prenne toute la page */
+            background-position: center;
+            background-attachment: fixed;   /* Garde l’image fixe au scroll */
+            overflow-x: hidden;
+            text-align: justify;
+            display:flex;          /* empile header, main, footer */
+            flex-direction:column; /* header en haut, footer en bas */
+            min-height:100vh;
+            margin:0;
+            position : relative
+        }
+
+        /* Dégradé noir en fond derrière la section texte des jeux */
+        body::before{
+            content:"";
+            position:fixed;
+            top:0;
+            left:50%;                   /* point d’ancrage milieu-écran   */
+            transform:translateX(-50%); /* …que l’on ramène de 50 %       */
+            width:max(100vw, 1800px);   /* prend 100 % de l’écran S I  >1700
+                                   reste collé à 1700 sinon      */
+            height:100vh;               /* toute la hauteur du viewport  */
+            pointer-events: none;
+            z-index: -2;
+            /* dégradé + image latérale ---------------------------------- */
+            background:
+                linear-gradient(to right,
+                    transparent 0 0,
+                    #000 18% 82%,
+                    transparent 100%);
+            opacity: 0;
+            transition: opacity 0.25s ease-out; /* pour le rendre visible au scroll */
+        }
+
+        /* Dégradé noir en fond derrière le body */
+        body::after {
+        content:""; /* Pour le dégradé noir derrière le body */
+        position:fixed;
+        inset:0;
+        background:#000;
+        pointer-events:none;
+        z-index:-6;
+        opacity:0;
+        transition: opacity 0.3s ease-out;
+        }
+        
+        /* Pour que le fond change quand on sélectionne un jeu */
+        html::before {
+        content:""; /* Pour le fond qui change au scroll */
+        position:fixed;
+        inset:0;
+        background-size:cover;
+        background-position:center;
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+        pointer-events:none;
+        z-index: -4;
+        opacity:0;
+        transition: opacity 0.35s ease-out 0.5s;
+        }
+
+
+
+
+        /* Header avec vidéo de fond */
+        .header {           
+            height: clamp(400px, 50vw, 35vh);
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 10dvw 10dvw;
+            overflow:hidden;
+            box-shadow:none; /* Pas d’ombre portée */
+            outline: 7px solid #000;
+            outline-offset:-1px;
+        }
+
+
+        /* Vidéo de fond du header */
+        .hero-video { 
+            height: clamp(400px, 50vw, 35vh);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            object-fit: cover; /* Pour que la vidéo prenne toute la place */
+            z-index: -2;
+        }
+
+
+        /* Ombre portée en bas du header */
+        .header::after { 
+            z-index: 0;
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            pointer-events: none; /* Pour que l’ombre ne bloque pas les clics */
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.000)  0%,
+                rgba(0,0,0,0.42) 40%,
+                rgba(0,0,0,0.55) 50%,
+                rgba(0,0,0,0.68) 60%,
+                rgba(0,0,0,0.8) 70%,
+                rgba(0,0,0,0.9) 80%,
+                rgba(0,0,0,0.95) 90%,
+                rgba(0,0,0,1.000) 100%
+            );
+        }
+
+
+        /* Texte de présentation */
+        .pheader {         
+            position: absolute;
+            margin: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 1rem;
+            font-size: clamp(13px, 2vw, 2.5vh);
+            font-weight: bold;
+            min-width: 85%;
+            text-align: center;
+            line-height: 1.3;
+            color: white;
+            z-index: 2;
+            font-family: var(--font-head);
+            text-shadow: /* Respectueusement : [offset-x : décalage horizontal (positif = droite, négatif = gauche)] ; [offset-y : décalage vertical (positif = bas, négatif = haut)] ; [blur-radius : flou de l’ombre (0 = net)] ; [color : couleur de l’ombre.] */
+                -1px -1px 0 #000,  /* haut-gauche */
+                0 -1px 0 #000,  /* haut */
+                1px -1px 0 #000,  /* haut-droit */
+                -1px 0 0 #000,  /* gauche */
+                1px 0 0 #000,  /* droite */
+                -1px 1px 0 #000,  /* bas-gauche */
+                0 1px 0 #000,  /* bas */
+                1px 1px 0 #000;  /* bas-droit */
+        }
+
+
+        /* Espace neutre entre le header et la section des jeux */
+        .espace-neutre {
+            height: clamp(2rem, 4vh, 12vw); /* Pour laisser de l’espace entre le header et la section des jeux */
+        }
+
+
+        /* Section des jeux */
+        .section-jeux { 
+            flex-shrink: 0;
+            gap: clamp(10px, 10vw , 200px);
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap; /* Pour que les images restent sur une ligne */
+            margin: 10vh auto;
+            width: 100%;
+            max-width: 1200px;
+            padding-left: clamp(1px, 1vw, 80px);
+            padding-right: clamp(1px, 1vw, 80px);
+        }
+
+        /* Ancre pour retour au menu */
+        .section-jeux a {
+            display: block;        /* pour que l’image prenne toute la largeur du lien */
+            flex: 0 0 17%;         /* pour que les images soient de taille égale */
+            min-width: 50px;      
+            box-sizing: border-box; /* pour que le padding soit inclus dans la largeur totale */
+        }
+
+
+
+        /* Images des jeux */
+        .image-The-Last-Of-Us,
+        .image-Undertale,
+        .image-Detroit-Become-Human {
+            flex-shrink: 0; /* Pour que les images ne rétrécissent pas */
+            width: 100%;
+            min-width: 60px;
+            display: block;
+            border-radius: 14px;
+            outline-offset: -1px;
+            transition: 
+            width 0.25s ease-out,
+            height 0.25s ease-out,
+            transform 0.25s ease-out,
+            border-radius 0.25s ease-out,
+            outline-offset 0.25s cubic-bezier(0, 0, 0.58, 1);
+        }
+
+
+        
+        /* Bordures spécifique des images des jeux */
+        .image-The-Last-Of-Us,
+        .image-Detroit-Become-Human {
+            outline: 3px solid #000;
+        }
+        .image-Undertale {
+            outline: 2px solid #ffffff;
+        }
+
+
+        /* Effets au survol des images */
+        .image-The-Last-Of-Us:hover,
+        .image-Detroit-Become-Human:hover {
+            transform: scale(1.10);
+            border-radius: 20px;
+            outline-width: 4px;
+        }
+        .image-Undertale:hover {
+            transform: scale(1.10);
+            border-radius: 20px;
+            outline-width: 3px;
+        }
+
+        /* Effets à la sélection des jeux */
+        body:has(#scroll-tlou:target, #texte-tlou:target) .image-The-Last-Of-Us{
+            transform:scale(1.4);
+            border-radius: 22px;
+            outline-offset: 7px;
+            outline-color:#ffb45e;
+            opacity: 1; /* Pour que l’image soit visible */
+        }
+        body:has(#scroll-undertale:target, #texte-undertale:target) .image-Undertale{
+            transform:scale(1.4);
+            border-radius: 22px;
+            outline-offset: 9px;
+            opacity: 1; /* Pour que l’image soit visible */
+        }
+        body:has(#scroll-detroit:target, #texte-detroit:target) .image-Detroit-Become-Human{
+            transform:scale(1.4);
+            border-radius: 22px;
+            outline-offset: 7px;
+            outline-color: #48B2EC;
+            opacity: 1; /* Pour que l’image soit visible */
+        }
+        
+        /* Pour que le texte des jeux soit visible au survol */
+        body:has(#scroll-tlou:target)::before,
+        body:has(#texte-tlou:target)::before,
+        body:has(#scroll-undertale:target)::before,
+        body:has(#texte-undertale:target)::before,
+        body:has(#scroll-detroit:target)::before,
+        body:has(#texte-detroit:target)::before {
+            opacity: 1;
+        }
+
+        /* Pour que le texte des jeux soit visible au scroll */
+        body:has(#scroll-tlou:target)::after,
+        body:has(#texte-tlou:target)::after {
+            opacity: 1;
+        }
+        body:has(#scroll-undertale:target)::after,
+        body:has(#texte-undertale:target)::after {
+            opacity: 1;
+        }
+        body:has(#scroll-detroit:target)::after,
+        body:has(#texte-detroit:target)::after {
+            opacity: 1;
+        }
+
+        /* Fond du nouveau jeu : change l’image et on fait apparaître html::before */
+        html:has(#scroll-tlou:target)::before,
+        html:has(#texte-tlou:target)::before {
+            background-image: url("background-tlou.png");
+            opacity: 1;
+        }
+        html:has(#scroll-undertale:target)::before,
+        html:has(#texte-undertale:target)::before {
+            background-image: url("background-undertale.jpg");
+            opacity: 1;
+        }
+        html:has(#scroll-detroit:target)::before,
+        html:has(#texte-detroit:target)::before {
+            background-image: url("background-detroit-become-human.png");
+            opacity: 1;
+        }
+
+
+        /* Texte du jeu */
+        .texte-jeu {
+            display: none; /* Masque le texte du jeu par défaut */;
+            margin: 4vh auto;
+            padding: 2rem;
+            max-width: 1110px;
+            color: white;
+            overflow-y: auto; 
+            box-sizing: border-box; /* pour que le padding soit inclus dans la largeur totale */
+            font-family: var(--font-body);
+        }
+
+        /* Texte du jeu sélectioné */
+        .texte-jeu:target {
+            display: block; /* Affiche le texte du jeu ciblé */
+            align-items: center; /* centrage vertical */
+            text-align: justify;
+        }
+
+        /* Affichage du texte du jeu sélectionné */
+        #scroll-tlou:target      ~ .textes-jeux #texte-tlou,
+        #scroll-undertale:target ~ .textes-jeux #texte-undertale,
+        #scroll-detroit:target   ~ .textes-jeux #texte-detroit{
+            display:block;
+        }
+
+
+        /* Bouton pour fermer le texte */
+        .texte-jeu a[href="#close"]{
+            --btn:#bdc3c7;                /* couleur par défaut (gris) */
+            color:var(--btn);             /* texte = couleur thème     */
+            font-family:Arial, sans-serif;
+            font-size:1rem;
+            font-weight:bold;
+            padding:.6rem 1.5rem .5rem;
+            margin: 5rem auto 1rem auto; /* centré horizontalement */
+            display: block;
+            width:max-content;  /* largeur minimale du bouton */
+            border:3px solid var(--btn);  /* bordure même teinte       */
+            border-radius:1000px;
+            background:transparent;
+            transition: background 0.2s, color 0.2s;
+        }
+        .texte-jeu a[href="#close"]:hover{
+            background:var(--btn);
+            color:#000;
+        }
+
+        /* Pour fermer le texte du jeu */
+        body:has(#scroll-tlou:target, #texte-tlou:target) 
+        .texte-jeu a[href="#close"]{ --btn:#ffb45e; }
+
+        body:has(#scroll-undertale:target, #texte-undertale:target) 
+        .texte-jeu a[href="#close"]{ --btn:#ffffff; }
+
+        body:has(#scroll-detroit:target, #texte-detroit:target) 
+        .texte-jeu a[href="#close"]{ --btn:#48b2ec; }
+
+
+        /* Bouton de retour en haut*/
+        .bouton-scroll{
+            position: fixed; /* positionné par rapport à la fenêtre */
+            bottom: 8vh; 
+            right: 20vw;
+            width: 4.25rem;
+            height: 4.25rem;
+            max-width: 4.25rem;
+            max-height: 4.25rem;
+            border-radius:50%;
+            background:#ff0000;
+            color:#fff;
+            font:700 2rem/3.7rem Arial, sans-serif;
+            text-align:center;
+            text-decoration:none;
+            z-index: 4;               
+            transition:transform .2s ease, background .2s ease;
+            opacity:0;
+            pointer-events:none;
+            text-shadow: 
+                0  0   2px currentColor, /* ombre portée du texte */
+        }
+        .bouton-scroll:hover{
+            transform:scale(1.11);
+            background:#e00000
+        }
+
+        /* Rend le bouton de retour en haut visible quand un jeu est sélectionné */
+        body:has(#scroll-tlou:target, #texte-tlou:target)            .scroll-tlou,
+        body:has(#scroll-undertale:target, #texte-undertale:target)  .scroll-undertale,
+        body:has(#scroll-detroit:target, #texte-detroit:target)      .scroll-detroit{
+            opacity:1;
+            pointer-events:auto;
+        }
+
+        /* Bouton YouTube */
+        .bouton-youtube {
+            display:inline-block;
+            background:#ff0000;
+            color:#fff;
+            padding:.55rem 1.1rem;
+            border-radius:9999px;
+            font:bold 1rem/1 Arial, sans-serif;
+            text-decoration:none;
+            transition: background .2s ease;
+            margin: 20px auto auto 15px;
+        }
+        .bouton-youtube:hover {
+            background:#be0000;
+            font-style: shadow(0 0 2px rgba(0,0,0,0.6));
+        }
+        /* Icône de lecture dans le bouton YouTube */
+        .play{ 
+            margin-right:.5rem;
+        }
+
+
+
+
+
+
+
+/* ----------- Section texte The Last of Us -------------*/
+
+        /* Texte de présentation de The Last of Us */
+        .compilation-paysages-tlou {
+            margin: 2rem auto;
+            text-align: justify;
+            gap: 2rem;
+        }
+        #video-paysages-tlou {
+            width: 100% !important;
+            height: auto;
+            border-radius: 13px;
+            margin: 0 0 2rem 3.5rem;
+            float: right; /* Pour que la vidéo soit à droite du texte */
+            object-fit: contain; /* Pour que la vidéo garde ses proportions */
+            transform: scaleY(0.9);   /* 15 % plus “plat”                    */
+        }
+
+
+        /* Texte personnages/expressions The Last of Us */
+        .compilation-personnages-tlou {
+            display: flex;
+            position: relative;
+            margin: 2rem auto;
+            text-align: left;
+            gap: 2rem;
+        }
+        .compilation-paysages-tlou p,
+        .compilation-personnages-tlou p {
+            flex: 1; /* Pour que le texte prenne tout l’espace disponible */
+        }
+        #video-personnages-tlou {
+            width: clamp(400px, 18vw, 550px);
+            height: auto;
+            border-radius: 13px;
+            margin: auto 2rem;
+        }
+
+
+
+/* ----------- Fin de la section texte The Last of Us -------------*/
+
+
+
+/* ----------- Section texte Undertale -------------*/
+
+        /* Section de gameplay pour Undertale */
+        .gameplay-undertale p {
+            flex: 1; /* Pour que le texte prenne tout l’espace disponible */
+        }
+        /* Vidéo de gameplay pour Undertale */
+        #video-undertale {
+            width: 100% !important;
+            height: auto;
+            border-radius: 13px;
+            margin: 2rem 0 2rem 2rem;
+            border: 2px solid #ffffff; /* Bordure blanche pour le contraste */
+            float: right; /* Pour que la vidéo soit à droite du texte */
+            shape-outside: margin-box; /* Pour que le texte s’enroule autour de la vidéo */
+        }
+
+
+        /* Section de présentation d'Undertale */
+        .undertale-sans {
+            display: flex;
+        }
+        .image-undertale-sans {
+            width: clamp(200px, 20vw, 300px) !important;
+            height: auto;
+            border-radius: 13px;
+            margin: auto 2rem;
+            align-self: flex-start;
+        }
+        .undertale-sans p {
+            flex: 1; /* Pour que le texte prenne tout l’espace disponible */
+            margin: auto 0;
+        }
+
+
+
+        /* Bouton YouTube pour Undertale */
+        .bouton-youtube-undertale {
+            display:inline-block;
+            background:#ff0000;
+            color:#fff;
+            padding:.55rem 1.1rem;
+            border-radius:9999px;
+            font:bold 1rem/1 Arial, sans-serif;
+            text-decoration:none;
+            transition: background .2s ease;
+            margin: 20px auto auto 30px;
+        }
+        .bouton-youtube-undertale:hover {
+            background:#be0000; 
+            font-style: shadow(0 0 2px rgba(0,0,0,0.6));
+        }
+        .play-undertale{ 
+            margin-right:0.5rem;
+        }
+
+        /* Section du succés d'Undertale */
+        .image-undertale-dog {
+            width: clamp(100px, 15vw, 200px) !important;
+            height: auto;
+            margin: 1rem 0 1rem 70%;
+        }
+
+        /* Section de conclusion pour Undertale */
+        .undertale-conclusion {
+            display: block;
+            margin: 2rem auto;
+            text-align: justify;
+            flex-wrap:wrap;
+        }
+        .undertale-conclusion p {
+            margin: 0;
+        }
+        .image-undertale-toriel {
+            width: clamp(120px, 17vw, 175px) !important;
+            height: auto;
+            flex-shrink:0; /* Pour que l’image ne rétrécisse pas */
+            float: right;
+            margin: 1rem 0 1rem 1rem;
+        }
+
+
+
+/* ----------- Fin de la section texte Undertale -------------*/
+
+
+
+/* ----------- Section texte Detroit: Become Human -------------*/
+
+
+        /* Section de présentation de Detroit: Become Human */
+        #video-detroit-edit {
+            width: 100% !important;
+            height: auto;
+            border-radius: 13px;
+            margin: 2rem auto;
+            text-align: center;
+            display: flex;
+            position: relative;
+        }
+
+        /* Image arborescence pour Detroit: Become Human */
+        #detroit-flowchart {
+            width: 90%;        /* occupe 90% du conteneur texte, jamais plus */
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px 0 rgba(0,0,0,0.3); /* (optionnel, pour bien détacher sur fond sombre) */
+        }
+
+        /* Section de QTE pour Detroit: Become Human */
+        .detroit-qte {
+            display: flex;
+            position: relative;
+            margin: 2rem auto;
+            text-align: justify;
+            gap: 2rem;
+        }
+        .detroit-qte p {
+            flex: 1; /* Pour que le texte prenne tout l’espace disponible */
+            line-height: 1.5;
+            margin: auto 0;
+        }
+        .detroit-qte video {
+            width: clamp(250px, 25vw, 400px) !important;
+            height: auto;
+            border-radius: 13px;
+            margin: auto 2rem;
+        }
+
+        /* Section de présentation des personnages de Detroit: Become Human */
+        .detroit-characters {
+            width: 80%;
+            height: auto;
+            flex-direction: column;
+            align-items: center;
+            margin: 5rem auto;
+            text-align: justify;
+        }
+        .detroit-characters p {
+            flex: 1; /* Pour que le texte prenne tout l’espace disponible */
+            line-height: 1.5;
+            margin: auto 0;
+        }
+        .detroit-markus,
+        .detroit-kara,
+        .detroit-connor {
+            display: flex;
+            position: relative;
+            margin: 2rem auto;
+            gap: 2rem;
+        }
+        .detroit-markus img,
+        .detroit-kara img {
+            width: clamp(220px, 35vw, 350px) !important; /* Prend entre 200px et 300px */
+            height: auto;
+            border-radius: 13px;
+            margin: auto;
+            display: block;
+            object-fit: contain;
+        }
+        .detroit-connor img {
+            width: 100%;              /* Prend toute la largeur du bloc */
+            max-width: 400px;         /* Jamais plus de 400px */
+            height: auto;
+            border-radius: 13px;
+            margin: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+/* ----------- Fin de la section texte Detroit -------------*/
+
+/* ---------------- Media Queries --------------- */
+
+        @media (max-width: 1100px) {
+            .texte-jeu {
+                margin: 1vh auto;
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 1080px) {
+            body:has(#scroll-tlou:target, #texte-tlou:target) .image-The-Last-Of-Us{
+                transform:scale(1.4);
+                border-radius: 10px;
+                outline-width: 2px;
+                outline-offset: 6px;
+            }
+
+            body:has(#scroll-undertale:target, #texte-undertale:target) .image-Undertale{
+                transform:scale(1.4);
+                border-radius: 10px;
+                outline-width: 2px;
+                outline-offset: 6px;
+            }
+
+            body:has(#scroll-detroit:target, #texte-detroit:target) .image-Detroit-Become-Human{
+                transform:scale(1.4);
+                border-radius: 10px;
+                outline-width: 2px;
+                outline-offset: 6px;
+            }
+        }
+
+        @media (max-width: 2050px) {
+            .bouton-scroll {
+                bottom: 8vh; /* Ajustement pour les écrans très petits */
+                right: 5vw;
+                width: 3.5rem;
+                height: 3.5rem;
+                font:500 1.7rem/3.25rem Arial, sans-serif;
+            }
+        }
+
+
+        @media (max-width: 750px) {
+            .bouton-scroll {
+                bottom: 8vh; /* Ajustement pour les écrans plus petits */
+                right: 10vw;
+                width: 3rem;
+                height: 3rem;
+                font:400 1.6rem/2.7rem Arial, sans-serif;
+            }
+        }   
+
+        @media (max-width: 1105px) {      
+            .compilation-paysages-tlou{
+                flex-direction:column; /* pour que les éléments soient empilés */
+            }
+            .compilation-paysages-tlou video {
+                margin: 0 auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+            }
+            .compilation-paysages-tlou p{order:1;}
+        }
+
+        @media (max-width: 1000px) {      
+            .compilation-personnages-tlou{
+                flex-direction:column; /* pour que les éléments soient empilés */
+            }
+            .compilation-personnages-tlou video {
+                width: 100% !important;
+                margin: 0 auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+            }
+            .compilation-personnages-tlou p{order:1;}
+            
+        }
+
+
+        @media (max-width: 730px) {      
+            .compilation-paysages-tlou video {
+                width: 100% !important;
+                margin: 0 auto 2rem auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+
+            }
+        }
+
+        @media (max-width: 1080px) {      
+            .gameplay-undertale{
+                flex-direction:column; /* pour que les éléments soient empilés */
+            }
+            .gameplay-undertale video {
+                margin: 2rem auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+            }
+            .gameplay-undertale p{order:1;}
+        }
+
+        @media (max-width: 730px) {      
+            .undertale-sans{
+                flex-direction:column; /* pour que les éléments soient empilés */
+            }
+            .image-undertale-sans {
+                width: 50% !important;
+                margin: 1rem auto 0 auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+            }
+            .undertale-sans p{order:1;}
+        }
+        @media (max-width: 720px){
+
+            .undertale-conclusion{
+                display: block;
+                text-align: left;
+                margin: 2rem auto;
+            }
+
+            .image-undertale-toriel{
+                float: right;
+                shape-outside: margin-box;
+                width: 50%;
+                max-width: 175px;
+                height: auto;
+                margin: 0 0 .7rem .7rem;
+            }
+        }
+
+        @media (max-width: 954px) {      
+            .detroit-qte p{line-height: normal;}
+        }
+
+        @media  (max-width: 860px) {      
+            .detroit-qte{
+                flex-direction:column; /* pour que les éléments soient empilés */
+            }
+            .detroit-qte video {
+                width: 70% !important;
+                margin: 0 auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+            }
+            .detroit-qte p{order:1;}
+
+        }
+
+        @media (max-width: 990px) {
+            .detroit-characters{
+                margin: 0 0 5rem 0; /* pour centrer verticalement */
+                width: 100%;
+                }
+            .detroit-characters p{
+                line-height: normal;
+            }
+            .detroit-markus, .detroit-kara, .detroit-connor {
+                flex-direction: column; /* pour que les éléments soient empilés */
+                margin: 5rem auto 0 auto; 
+            }
+            #scroll-detroit-markus, #scroll-detroit-kara {
+                width: 70% !important;
+                margin: 0 auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+            }
+
+            #scroll-detroit-connor {
+                width: 100% !important;
+                margin: 0 auto !important;
+                max-width:none; /* enlève les éventuelles contraintes   */
+                order: 2;
+            }
+
+            .detroit-markus p, .detroit-kara p, .detroit-connor p {
+                order:1;
+                margin: 0 auto; /* pour centrer le texte */
+            }
+
+        }
+    
+    /* --------------------- Fin des media queries -------------------- */
+
+    /* ------------------------------- Footer ---------------------------------- */
+
+        .footer-content{
+            display:flex;               /* 3 colonnes sur une seule ligne      */
+            padding: 0.5rem 2vw;
+            font-family: var(--font-body);
+            align-items:center;         /* vertical-align au milieu            */
+            justify-content:space-between;
+            gap:2rem;                   /* espace entre chaque colonne         */
+            background:#141414;
+            color:#fff;                 /* texte lisible sur fond sombre       */
+        }
+
+        .footer-content p{
+            margin:0;
+        }
+
+        /* Pour le logo du footer */
+        .logo-footer{
+            flex-shrink:0; /* pour que l’image ne rétrécisse pas */
+            width:clamp(200px,20vw,300px);
+            height:auto;
+            border-radius:12px;
+        }
+
+
+        @media (max-width:770px){
+            .footer-content{
+                display:grid; /* grille de mise en page */
+                grid-template-columns:1fr 1fr;           /* 2 colonnes égales (fragments égaux)*/
+                grid-template-areas: /* grille de mise en page (2 lignes, 2 colones) */
+                    "logo logo"                          /* ligne 1 : logo centré       */
+                    "sig  mail";                         /* ligne 2 : textes alignés    */
+                row-gap:0.5rem; /* espace entre les lignes */
+                text-align:center;
+                font-size: 13px;
+            }
+            .logo-footer{
+                grid-area: logo; /* pour la grille de mise en page */
+                width: 55%;
+                margin:0 auto;
+            }
+        }
+
+/* ------------------------- Fin du footer -----------------------------------*/
+
+
+
+
+
+        
+    </style>
+</head>
+
+<body>
+    <a id="close"></a>
+    <header class="header">
+        <video autoplay loop muted class="hero-video">
+            <source src="Edit jeux vidéos.mp4" type="video/mp4">
+        </video>
+        <p class="pheader">Que vous soyez un joueur aguerri ou un néophyte intrigué par le monde du jeu vidéo, voici trois titres d'exception que je souhaite partager avec vous. Ces jeux ont chacun marqué l’histoire du média à leur manière, et ils m’ont personnellement profondément marqué. À travers une aventure post-apocalyptique émouvante, un conte RPG indépendant bourré d’ingéniosité, et une expérience narrative futuriste interactive, découvrons The Last of Us, Undertale et Detroit: Become Human.<br> Laissez-moi vous guider, pour comprendre ce qui rend chacun de ces jeux inoubliable et pourquoi ils méritent votre attention.</p>
+    </header>
+    <main>
+        <div class="espace-neutre"></div>
+        <span id="scroll-tlou"></span>
+        <span id="scroll-undertale"></span>
+        <span id="scroll-detroit"></span>
+        <section class="section-jeux">
+            <a href="#texte-tlou"><img src="The Last of us designer.JPG" alt="The Last Of Us" class="image-The-Last-Of-Us"></img></a>
+            <a href="#texte-undertale"><img src="undertale-phone-720-x-1280-wallpaper-flp2o9gykk3172l9.jpg" alt="Undertale" class="image-Undertale"></img></a>
+            <a href="#texte-detroit"><img src="detroit_9-16.jpg" alt="Detroit: Become Human" class="image-Detroit-Become-Human"></img></a>
+        </section>
+        <section class="textes-jeux">
+            <div id="texte-tlou" class="texte-jeu">
+                <section id="the-last-of-us">
+                    <article>
+                        <h2>The Last of Us : L’humanité au cœur du chaos</h2>
+                            <div class="compilation-paysages-tlou">
+                                <video autoplay loop muted id="video-paysages-tlou">
+                                    <source src="compilation-paysages-tlou.mp4" type="video/mp4">
+                                </video>
+                                <p><strong>Genre</strong> : Action-aventure / survival horror (survie) – <strong>Sortie</strong> : 2013 – <strong>Développeur</strong> : Naughty Dog (USA)</p>
+                                <p>Imaginez un monde dévasté, vingt ans après qu’une pandémie incontrôlable a ravagé la civilisation humaine</p>
+                                <p>Dans The Last of Us, un jeu en vue à la troisième personne (c’est-à-dire que l’on voit son personnage à l’écran), vous incarnez Joel, un homme endurci par ce nouveau monde brutal, qui doit escorter Ellie, une adolescente de 14 ans née après la catastrophe. La cause de ce chaos ? Un champignon mutant, le Cordyceps, infectant les humains et les transformant en créatures agressives. Ensemble, Joel et Ellie traversent les États-Unis en ruines, cherchant à survivre à la fois aux monstres infectés et aux survivants humains hostiles qu’ils croisent en chemin</p>
+                            </div>
+                        <h3>Une aventure post-apocalyptique au cœur battant</h3>
+                            <p>Bien que le décor soit celui d’un monde post-apocalyptique peuplé d’ennemis infectés, The Last of Us n’est pas un jeu de zombies comme les autres. Au contraire, il prend le contrepied des jeux d’horreur gore et d’action frénétique habituellement associés au genre (tels que Resident Evil ou Dead Space)</p>
+                            <p>Ici, les infectés, assimilables   à des zombies, restent en toile de fond, et c’est la relation humaine entre Joel et Ellie qui est mise au premier plan</p>
+                            <p>Le jeu raconte avant tout l’histoire de deux êtres que tout oppose au départ, forcés de collaborer pour survivre, et qui développent peu à peu un lien quasi filial au fil des épreuves. Cette approche centrée sur les personnages confère à l’aventure une force émotionnelle rare dans le jeu vidéo. Dès les premières minutes, la mise en scène frappe si fort qu’elle a tiré des larmes à certains joueurs, avant même qu’ils ne soient attachés aux personnages, grâce à la puissance de la narration et des performances d’acteurs</p>
+                            <p>Le ton du récit oscille ainsi entre moments d’une grande tendresse (de rares instants d’espoir et d’humour entre Joel et Ellie) et scènes de tension extrême face au danger. En jouant, on arrive à ressentir la solitude des villes en ruine envahies par la végétation, On traverse d’anciens boulevards désormais recouverts d’herbes hautes et de racines ; on franchit des immeubles qui menacent de s’écrouler, la lampe torche révélant des spores en suspension et des notes laissées par d’anciens occupants. Chaque environnement impose sa propre tension : un couloir d’hôpital vide amplifie le moindre grincement ; un tunnel inondé oblige à gérer l’oxygène et la position des infectés. La peur de l’inconnu se fait ressentir… mais surtout l’attachement croissant entre ces deux protagonistes blessés par la vie. The Last of Us réussit le tour de force de nous immerger dans une véritable histoire digne d’un film ou d’une série, sans sacrifier l’interactivité propre au jeu vidéo.</p>
+                        <h3>Un gameplay de survie réaliste et immersif</h3>
+                            <p>Du côté gameplay (c’est-à-dire la façon dont on joue concrètement), The Last of Us est un jeu d’action-aventure à la survie. Cela signifie que le joueur doit constamment composer avec des ressources limitées et des ennemis dangereux. Par exemple, les munitions (balles, etc.) et les vivres (trousses de soin, provisions) sont rares : Joel et Ellie doivent fouiller les décors pour récupérer ce qu’ils peuvent et avancer dans leur quête en évitant de gaspiller</p>
+                            <p>Cette mécanique de gameplay renforce l’immersion : chaque balle compte, ce qui pousse souvent à la furtivité (se faufiler sans se faire repérer) plutôt qu’à l’affrontement direct. Un principe de jeu important est le craft (artisanat) simplifié : à partir d’objets ramassés (alcool, tissus, lames, etc.), on peut fabriquer des bandages, des cocktails Molotov ou des armes de fortune. Ce système est expliqué de façon très accessible dans le jeu et ajoute une profondeur stratégique sans noyer le novice sous des recettes complexes. Par exemple, doit-on utiliser ces quelques ressources pour concocter un kit de soin vital, ou préférer fabriquer une bombe artisanale pour éliminer un groupe d’ennemis ? Ce genre de choix de gameplay fait écho au thème de la survie désespérée et place le joueur face à des dilemmes constants (bien que moins moraux que dans d’autres jeux présentés ici).</p>
+                            <p>Les mécaniques de combat alternent entre phases d’infiltration, où l’on essaye de contourner les infectés aveugles (les terrifiants Clickers qui réagissent au son) sans bruit, et phases d’action plus directe contre des bandits ou des monstres, quand la discrétion échoue. Le jeu reste accessible à un non-initié car il introduit progressivement ces mécaniques, avec une prise en main intuitive : se cacher derrière un muret, lancer une brique pour distraire un ennemi, ou utiliser discrètement un couteau ; des actions simples qui deviennent rapidement naturelles pour le joueur.</p>
+                            <p>En cas de confrontation ouverte, The Last of Us offre un gameplay de tir à la troisième personne classique (viser avec la manette et tirer), agrémenté de combats au corps-à-corps viscéraux si un ennemi vous saute dessus. Attention, c’est un univers violent et sans concession (public adulte, PEGI 18) : la violence y est montrée de manière crue, non pas pour le spectacle, mais pour servir le réalisme du propos. Cela renforce d’autant plus l’impact des moments calmes et humanistes du récit.</p>
+                        <h3>Une prouesse technique et narrative saluée par tous</h3>
+                            <p>Sur le plan technique et artistique, The Last of Us était un véritable tour de force lors de sa sortie sur PlayStation 3 en 2013. Le jeu utilise le moteur graphique propriétaire de Naughty Dog (le studio développeur), couplé à la technologie Havok pour la physique, afin de délivrer des graphismes époustouflants pour l’époque</p>
+                            <div class="compilation-personnages-tlou">
+                                <video autoplay loop muted id="video-personnages-tlou">
+                                    <source src="compilation-personnages-tlou.mp4" type="video/mp4">
+                                </video>
+                                <p>Concrètement, cela se traduit par des environnements extrêmement détaillés (la lumière filtrant à travers une fenêtre poussiéreuse d’un immeuble abandonné, la végétation luxuriante reconquérant les rues…), mais aussi par des animations faciales d’un réalisme saisissant chez les personnages. Naughty Dog a mis l’accent sur la capture de mouvement des acteurs (voix et jeu corporel enregistrés simultanément) pour conférer à Joel, Ellie et aux autres une expressivité digne de véritables acteurs de cinéma. Le résultat ? Des scènes cinématiques intégrées au jeu où l’on oublie presque que l’on regarde des personnages virtuels tant leurs émotions sonnent vrai.</p>
+                            </div>
+                            <p>Cette maîtrise technique sert avant tout la narration : chaque tremblement dans la voix, chaque regard paniqué d’Ellie ou mâchoire crispée de Joel ajoute une couche d’immersion. La musique, composée par Gustavo Santaolalla (un musicien renommé ayant reçu des Oscars pour des bandes originales de films), vient sublimer l’ensemble avec des mélodies acoustiques mélancoliques. Les moments de tension sont soulignés par des cordes grinçantes minimalistes, tandis que les rares instants d’espoir sont accompagnés d’accords de guitare poignants. Même un néophyte ressent instinctivement l’impact de cette bande-son tant elle guide nos émotions pendant le jeu.</p>
+                            <p>L’ambiance sonore dans son ensemble est d’ailleurs un élément marquant : on apprend vite à guetter le moindre grognement lointain d’un infecté dans le silence d’un bâtiment, ou au contraire à profiter du chant apaisant des oiseaux quand on traverse une zone forestière temporairement sûre. Ce souci du détail audiovisuel fait de The Last of Us une expérience quasi-cinématographique. D’ailleurs, le jeu a souvent été qualifié de “chef-d’œuvre” par la presse spécialisée saluant autant son histoire que sa réalisation. Avant même sa sortie, il remportait des prix “Best of E3” (récompenses de meilleur jeu du salon E3 2012) et, une fois le jeu disponible, les critiques ont été unanimement élogieuses</p>
+                            <p>Le succès public a suivi : <strong>The Last of Us</strong> s’est vendu à 1,3 million d’exemplaires en seulement une semaine, et plus de 3,4 millions en trois semaines, établissant un record de démarrage sur PS3 en 2013<br></p>
+                            <p>En 2018, on comptait plus de 17 millions de copies vendues dans le monde<br></p>
+                            <p>Le jeu a depuis connu une version remastérisée sur PS4, une suite (<em>The Last of Us Part&nbsp;II</em>, sortie en 2020) et même une adaptation en série télévisée à succès sur HBO en 2023<br></p>
+                            <p>Autant dire que c’est un titre qui a durablement marqué la culture populaire, au-delà du cercle des gamers.</p>
+                        <h3>Mon vécu de joueur sur The Last of Us</h3>
+                            <p>Sur un plan plus personnel, <strong>The Last of Us</strong> est le jeu qui m’a fait réaliser à quel point le médium vidéoludique peut transmettre des émotions fortes. Je me souviens encore très clairement de la claque narrative du prologue : manette en main, j’ai vécu une scène d’ouverture bouleversante qui m’a littéralement laissé les larmes aux yeux, un fait assez inédit pour moi à l’époque, qui associait difficilement le jeu vidéo à une telle tristesse habituellement réservée aux films.</p>
+                            <p>Tout au long de l’aventure, j’ai été happé par l’histoire de Joel et Ellie, au point de ressentir de l’anxiété pour eux dans les moments dangereux, et de la joie sincère dans leurs rares instants de complicité. Ce jeu a réussi à créer un attachement presque aussi fort qu’une série télévisée de plusieurs saisons, mais en seulement quelques dizaines d’heures et avec une implication active de ma part (puisque c’est moi qui incarne Joel la majeure partie du temps).</p>
+                            <p>Bien sûr, aimer <strong>The Last of Us</strong> n’est pas très original tant ce jeu est largement acclamé, mais il occupe pour moi une place spéciale : il a été une sorte de révélation sur la puissance de la narration interactive. Après l’avoir terminé, j’ai longtemps repensé à sa fin et aux questions qu’elle soulève sur l’amour et la morale en situation extrême.</p>
+                            <p>Encore aujourd’hui, je conseille ce jeu autour de moi non pas pour ses fusillades ou son gameplay (efficaces mais pas dépaysant), mais pour son histoire et ce qu’on ressent en la vivant. Si vous n’êtes pas familier des jeux vidéo, <strong>The Last of Us</strong> pourrait bien être celui qui vous fera dire : “Je ne pensais pas qu’un jeu pouvait me toucher comme ça.” Et honnêtement, c’est exactement ce qui m’est arrivé.</p>
+                            <a class="bouton-youtube" href="https://youtu.be/0oCw7rP4Wis?si=RoEHoEtLbtRez-P2" target="_blank" rel="noopener"><span class="play">▶</span> Regarder le trailer</a>
+                    </article>   
+                </section>
+                <a href="#scroll-tlou" class="bouton-scroll scroll-tlou" aria-label="Retour aux vignettes TLOU">↑</a>
+                <p><a href="#close">Fermer</a></p>
+            </div>
+            <div id="texte-undertale" class="texte-jeu">
+                <section id="undertale">
+                    <article>
+                        <h2>Undertale : un conte RPG qui vous confronte à vos choix</h2>
+                            <video autoplay loop muted id="video-undertale">
+                                    <source src="undertale-gameplay.mp4" type="video/mp4">
+                                </video>
+                            <p><strong>Genre</strong> : Jeu de rôle (RPG) indépendant – <strong>Sortie</strong> : 2015 – <strong>Développeur</strong> : Toby Fox (USA)</p>
+                            <p>Changement total d’univers : oublions les graphismes réalistes et le ton sombre, et plongeons dans le monde d’Undertale. Ce jeu au style rétro (volontairement, on dirait un jeu des années&nbsp;90 visuellement) commence comme un conte&nbsp;: un enfant chute dans un royaume souterrain appelé <em>Underground</em>, isolé du monde de la surface par une barrière magique</p>
+                            <p>Cet Underground est peuplé de monstres autrefois en guerre contre les humains. Vous incarnez donc cet enfant perdu dans un monde étrange, et votre objectif est simple en apparence&nbsp;: retrouver la sortie vers la surface. Sur votre chemin, vous allez rencontrer toutes sortes de créatures, certaines amicales, d’autres hostiles, mais aucune n’est vraiment ce qu’elle paraît être au premier abord.</p>
+                        <h3>Un univers de monstres… très humains</h3>
+                            <p>Visuellement, Undertale rappelle les anciens jeux en pixel art, avec des graphismes 2D simples et colorés. Ne vous laissez pas tromper par cette apparence un peu «&nbsp;mignonne&nbsp;» et simpliste&nbsp;: le jeu recèle en réalité une grande profondeur narrative et émotionnelle. Le ton oscille constamment entre l’humour décalé (le jeu adore briser le quatrième mur et jouer avec les clichés des jeux vidéo) et des moments beaucoup plus touchants, voire tristes, liés à l’histoire personnelle des monstres que vous rencontrez. Car oui, les monstres ont une âme dans Undertale, souvent plus que les humains d’ailleurs.</p>
+                            <div class="undertale-sans">
+                                <img src="image-undertale-sans.jpg" alt="Sans le squelette d'Undertale" class="image-undertale-sans"></img>
+                                <p>L’écriture est l’un des gros points forts&nbsp;: chaque personnage monstrueux que vous croisez a sa propre personnalité attachante. Par exemple, vous ferez la connaissance de <strong>Sans</strong> et <strong>Papyrus</strong>, deux squelettes frères : l’un blagueur et flemmard, l’autre gaffeur et obsédé par l’idée de capturer un humain pour prouver sa valeur. Ou encore <strong>Undyne</strong>, une fière guerrière poisson au cœur noble, <strong>Alphys</strong>, une scientifique introvertie fan d’animés, et bien d’autres. Au fil de votre progression dans l’Underground, ces personnages vous feront rire aux éclats par leurs répliques pleines d’esprit, mais pourront aussi vous émouvoir en révélant leurs doutes, leurs rêves, leurs peurs.</p>
+                            </div>
+                            <p>Undertale réussit à créer une galerie de personnages mémorables qui restent en tête longtemps après avoir posé la manette. Le scénario en lui-même s’adapte en fait à vos actions (nous en reparlerons dans le gameplay), ce qui donne plusieurs parcours narratifs possibles. Mais globalement, c’est une histoire qui parle de réconciliation, d’empathie et de conséquences de nos actes. Un joueur novice pourra apprécier l’intrigue de base : l’enfant qui cherche à rentrer chez lui avec ses rebondissements, sans forcément saisir toutes les subtilités au premier passage. Cependant, Undertale distille de nombreux indices et clins d’œil qui donnent une méta-dimension au récit&nbsp;: le jeu est conscient qu’il est un jeu, et il va parfois communiquer directement avec vous, le joueur, d’une manière étonnante. Cela crée une immersion d’un type différent, presque intime, comme si le jeu vous connaissait… (Difficile d’en dire plus sans gâcher les surprises, sachez juste que Undertale joue avec le média jeu vidéo lui-même d’une façon très ingénieuse).</p>
+                            <p>Malgré son univers fantaisiste de monstres et de magie, Undertale aborde également des thèmes sérieux de manière métaphorique&nbsp;: le pardon, la tolérance (plusieurs personnages représentent des minorités ou des personnalités atypiques, le jeu est d’ailleurs salué pour sa représentation inclusive), la responsabilité de ses choix, etc. Mais rassurez-vous, jamais cela n’est asséné de façon moralisatrice&nbsp;: c’est en jouant et en découvrant les conséquences de vos décisions que ces thématiques vous apparaissent naturellement.</p>
+                        <h3>Un gameplay original qui laisse le choix à votre conscience</h3>
+                            <p>Ce qui fait la renommée d’Undertale, c’est avant tout son gameplay de combat révolutionnaire pour un RPG. Dans un jeu de rôle classique, on se bat contre des monstres pour gagner de l’expérience et devenir plus fort. Dans Undertale, vous avez toujours le choix&nbsp;: combattre… ou ne pas combattre. Plus précisément, chaque rencontre avec un monstre se déroule en deux phases&nbsp;: d’abord une phase où vous esquivez les attaques du monstre, puis une phase où c’est à vous d’agir.</p>
+                            <p>L’esquive se fait via un mini-jeu de type <em>shoot ’em up</em> (ou <em>bullet hell</em>) : votre âme, représentée par un petit cœur, est dans une boîte et l’ennemi vous envoie des projectiles ou effets qu’il faut éviter en bougeant le cœur. C’est un peu comme un jeu d’arcade intégré au combat tour-par-tour, et chaque monstre a son “pattern” d’attaque unique souvent lié à sa personnalité (par exemple, un chien soldat vous envoie des os à éviter). Pas besoin d’être un pro du réflexe : les premières attaques sont très simples, ça se corse un peu ensuite mais le jeu reste clément et propose même des options pour faciliter si vraiment on a du mal. Cette partie du gameplay est très ludique et dynamique, ce qui tranche avec le côté habituellement statique des RPG à l’ancienne.</p>
+                            <div class="gameplay-undertale">
+                                <p>Ensuite vient votre tour. Et là, Undertale propose deux voies&nbsp;: attaquer (donc infliger des dégâts en appuyant au bon moment dans une barre de timing) ou agir pacifiquement via le menu <em>Act</em>. En choisissant <em>Act</em>, vous pouvez par exemple parler au monstre, lui raconter une blague, lui faire un compliment, flirter avec lui, ou d’autres actions contextuelles souvent humoristiques. Le but&nbsp;? Émouvoir ou apaiser le monstre au lieu de le tuer. Si vous trouvez la bonne action (souvent en expérimentant, ou en observant les indices dans le comportement de l’ennemi), le monstre devient réceptif et vous pouvez alors choisir de l’épargner (<em>Spare</em>). Il vous laissera tranquille, et vous remportez le combat sans verser le sang.</p>
+                        </div>
+                            <p>C’est là toute la magie d’Undertale&nbsp;: chaque combat peut se résoudre de manière pacifique, transformant un adversaire potentiel en ami. Et le jeu se souvient de tout cela&nbsp;: “Le choix de tuer ou épargner affecte le jeu, altérant les dialogues, les personnages, et la narration dépendant des choix effectués.”</p>
+                            <p>Autrement dit, votre façon de jouer écrit votre histoire. Pour donner un exemple concret (sans spoiler majeur)&nbsp;: si vous décidez d’épargner tous les monstres, vous ferez un Parcours Pacifiste où vous n’aurez presque pas d’EXP (puisque EXP provient normalement des victoires en tuant), vos stats resteront faibles, mais vous apprendrez à mieux connaître chaque personnage et vous débloquerez des scènes additionnelles amicales. À l’inverse, vous pouvez tenter le Parcours "Génocide" en tuant absolument tout sur votre passage. Mais attendez-vous à ce que le jeu vous en tienne rigueur, tant au niveau de l’histoire (les personnages restants auront des réactions différentes…) qu’au niveau de la difficulté (les boss pacifiques deviennent terriblement redoutables si vous avez pris la voie du “mal”). Il existe aussi un chemin intermédiaire neutre.</p>
+                            <p>Cette narration non linéaire est expliquée en douceur au joueur&nbsp;: la première partie sera sans doute neutre (un mélange des deux selon vos hésitations), puis le jeu vous incitera subtilement à le recommencer pour viser soit la vraie fin pacifiste, soit le sombre chemin génocide, selon vos envies.</p>
+                            <p>Pour un novice, cela peut sembler beaucoup d’options, mais en réalité Undertale est très accessible. On peut tout à fait le finir une première fois en suivant son instinct (tuer les ennemis difficiles, épargner ceux qu’on aime bien) et obtenir une fin “neutre” satisfaisante. Ensuite, si la curiosité vous pique, vous pourrez le rejouer pour expérimenter l’autre approche. Le <em>level design</em> est fait intelligemment&nbsp;: aucun combat n’est insurmontable même si vous choisissez de ne pas améliorer votre personnage par le combat (puisque les patterns d’esquive, avec un peu d’entraînement, se maîtrisent). Toby Fox, le créateur, a voulu que même quelqu’un qui n’a jamais joué à un RPG puisse s’en sortir en mode pacifiste complet, du moment qu’il a de la détermination… et oui, la <strong>Détermination</strong> (<em>Determination</em>) est un mot-clé du jeu, je vous laisse découvrir pourquoi :3</p>
+                            <p>En résumé, Undertale renouvelle le gameplay du RPG en transformant chaque rencontre en dilemme moral plutôt qu’en simple affrontement chiffré. C’est presque un commentaire sur la violence gratuite dans les jeux&nbsp;: “Et si, au lieu de toujours tuer le monstre, vous appreniez à le connaître&nbsp;?” La beauté, c’est que cela fonctionne et rend l’expérience extrêmement personnelle. On finit par se poser de vraies questions de conscience tout en jouant, sans que le jeu nous les impose explicitement.</p>
+                        <h3>Un phénomène culte acclamé par la critique et les joueurs</h3>
+                            <p>Malgré son apparence modeste, Undertale a connu un succès retentissant, aussi bien critique que public. Le jeu a été développé intégralement par Toby Fox, un jeune créateur américain touche-à-tout (il a programmé le jeu, écrit le scénario et composé la totalité de la musique lui-même)</p>
+                            <p>Aidé seulement d’une illustratrice pour quelques dessins, il a mis près de 3 ans à peaufiner son “petit” jeu indépendant. À sa sortie en 2015, Undertale a surpris tout le monde par la qualité de son écriture, de sa thématique, de son système de combat, de sa musique et de son originalité, pour reprendre les termes des critiques</p>
+                            <p>La presse spécialisée l’a couvert d’éloges pour son histoire riche en émotions, ses dialogues drôles et intelligents, et ses personnages attachants</p>
+                            <p>Imaginez : un jeu créé par une seule personne, au budget minuscule comparé aux grosses productions, a réussi à faire mieux (aux yeux de beaucoup) que des titres développés par des centaines de développeurs ! Undertale a été nommé pour de nombreux prix de Jeu de l’année 2015 et a remporté plusieurs distinctions, parfois même face à des blockbusters. La communauté des joueurs s’est immédiatement prise d’affection pour cet OVNI vidéoludique. En moins d’un an, plus d’un million d’exemplaires étaient vendus</p>
+                            <p>Un chiffre énorme pour un jeu indépendant de ce type. Et surtout, Undertale a acquis le statut de jeu culte : il a une fanbase incroyablement passionnée. On trouve des forums entiers dédiés à analyser le moindre recoin du jeu, des tonnes de fan-arts sur les réseaux, des remixes de sa bande-son… même en concert symphonique (un concert anniversaire a été donné avec orchestre en 2019 tant les musiques ont marqué les esprits)</p>
+                            <p>Pour illustrer l’ampleur du phénomène, Le Monde (journal français) le qualifiait de “mythique jeu de rôle” et notait qu’il a eu un immense succès critique et un très confortable succès commercial, avec une communauté de fans dévoués qui espèrent une suite</p>
+                            <p>Ce qui frappe, c’est à quel point Undertale est un jeu à part : il ne ressemble vraiment à aucun autre. Son design rétro et sa poésie certaine peuvent rebuter au premier abord les amateurs de graphismes modernes, mais il suffit d’y jouer quelques heures pour comprendre l’immense générosité de cette œuvre, qui donne tout ce qu’elle a dans le cœur sans artifices techniques. Comme l’a très bien résumé un article, Undertale est « un jeu de rôle au design rétro, porté par une superbe bande-son et une poésie certaine, qui a connu un immense succès critique et un très confortable succès commercial »</p>
+                            <p>En d’autres termes, la forme est old-school, mais le fond est exceptionnel. Notons qu’Undertale n’a jamais eu de traduction officielle en français (le jeu est en anglais, mais d’un niveau assez basique avec beaucoup d’argot et de jeux de mots visuels). Cependant, la communauté a réalisé des patches de traduction non officiels si l’anglais est un blocage. Et puisque Toby Fox aime surprendre, il a sorti par la suite un <em>spin-off</em> nommé <strong>Deltarune</strong> (anagramme d’Undertale) dont deux chapitres sont déjà disponibles gratuitement. Mais ça c’est une autre histoire&nbsp;.</p>
+                            <img src="image-undertale-dog.jpg" alt="Undertale Dog" class="image-undertale-dog"></img>
+                        <h3>Mon affection personnelle pour Undertale</h3>
+                            <p>Pour être honnête, la première fois que j’en ai vu des images, j’étais un peu sceptique : les graphismes minimalistes m’ont fait penser à un vieux jeu NES, et je me suis demandé ce que tout le monde lui trouvait. Puis j’ai commencé à y jouer… et j’ai été complètement conquis. Rarement un jeu ne m’a autant surpris à chaque tournant : une salle qui cache un gag absurde, un boss qui se met à chanter, un fantôme dépressif qu’on peut réconforter, ou au contraire un moment de pure émotion où un personnage vous dit des mots qui brisent le cœur. Undertale est parvenu à me faire éclater de rire et verser une petite larme dans la même partie, chose assez unique dans mon expérience de joueur.</p>
+                            <p>J’ai particulièrement adoré la manière dont le jeu s’adresse directement à nous. Sans spoiler, disons qu’à un moment, j’ai pris une décision dans le jeu que je pensais anodine, et plus tard Undertale m’a fait comprendre qu’il n’avait rien oublié… Ce jeu sait exactement ce que vous faites et brise les conventions, ce qui m’a donné l’impression presque flippante qu’il lisait par-dessus mon épaule. C’est une expérience très différente d’un jeu linéaire : je me suis senti acteur de l’histoire bien plus que d’habitude, responsable de mes choix envers ces personnages virtuels qui, quelque part, en devenaient presque réels dans mon esprit.</p>
+                            <p>Sur le plan du message, Undertale m’a fait réfléchir à la violence dans les jeux et au fait que souvent on tue des monstres sans se poser de questions. Ici, pour la première fois, j’ai ressenti de la culpabilité d’attaquer ces pauvres créatures qui avaient toutes leurs raisons d’agir ainsi. Je me suis surpris à vouloir absolument sauver tout le monde lors de ma seconde partie, non pas simplement pour compléter la run pacifiste, mais simplement parce que je le souhaitais. Et ce défi fut l’un des plus gratifiants que j’ai connus : finir le jeu en n’ayant tué personne m’a valu une fin extraordinaire, pleine d’émotion, que je n’oublierai jamais.</p>
+                            <p>En bref, Undertale occupe une place spéciale dans mon cœur de joueur. C’est le jeu que je cite spontanément quand on me demande une recommandation originale, ou quand quelqu’un me demande un jeu avec une histoire originale. Je l'invite à essayer ce jeu qui, pour sûr, le surprendra autant qu'il m'a surpris. Avec ses pixels simplistes mais son âme immense, Undertale m’a rappelé que la créativité et le cœur peuvent l’emporter sur la technique. Et je vous garantis que sa superbe bande-son résonne encore souvent chez moi (j’écoute les musiques régulièrement, tant elles sont géniales&nbsp;.).</p>
+                            <div class="undertale-conclusion">
+                                <p>Undertale est une pépite qui m’est très chère, et j’espère que, si vous lui laissez sa chance, vous découvrirez à quel point « l’important n’est pas l’apparence, mais ce qu’il y a dans le cœur ».</p>
+                                <p><img src="image-toriel.png" alt="Toriel" class="image-undertale-toriel">Comme dirait peut-être Toriel, l’un des personnages du jeu.</p>
+                            </div>
+                            <a class="bouton-youtube" href="https://youtu.be/jaMkamqtIOs?si=_PNgZUdi6J5Wc-z_" target="_blank" rel="noopener"><span class="play">▶</span> Regarder une présentation</a>
+                    </article>
+                    <a href="#scroll-undertale" class="bouton-scroll scroll-undertale" aria-label="Retour aux vignettes Undertale">↑</a>
+                    <p><a href="#close">Fermer</a></p>
+                </section>
+            </div>
+            <div id="texte-detroit" class="texte-jeu">
+                <section id="detroit">
+                    <article>
+                        <h2>Detroit: Become Human : Trois intelligences artificielles, un futur entre vos mains</h2>
+                            <video autoplay loop muted id="video-detroit-edit">
+                                <source src="compilation-detroit.mp4" type="video/mp4">
+                            </video>
+                            <p><strong>Genre</strong> : Aventure narrative interactive / Science-fiction – <strong>Sortie</strong> : 2018 – <strong>Développeur</strong> : Quantic Dream (France)</p>
+                            <p>Bienvenue en 2038, dans la ville de Détroit aux États-Unis. Les voitures volantes ? Non. Les colonies sur Mars ? Pas encore. La science-fiction de Detroit: Become Human est plus proche de nous : elle imagine un futur très crédible où des androïdes (robots à l’apparence humaine) sont devenus monnaie courante, vendus dans le commerce pour servir d’employés, d’assistants domestiques, de policiers, etc.</p>
+                            <p>Ces androïdes ressemblent trait pour trait à des humains, si ce n’est un petit indicateur lumineux sur leur tempe et leur comportement obéissant. Ils n’ont théoriquement pas de conscience… jusqu’au jour où certains commencent à montrer des signes d’émotions et de libre arbitre. Dans ce jeu, vous ne contrôlez pas un, mais trois personnages androïdes à tour de rôle : <strong>Kara</strong>, une androïde aide-ménagère qui s’éveille à la conscience en voulant protéger une petite fille des abus de son père ; <strong>Connor</strong>, un androïde prototype enquêteur chargé d’aider la police à traquer justement ces androïdes déviants ; et <strong>Markus</strong>, un androïde assistant auprès d’un vieil artiste, qui va se retrouver leader malgré lui d’une révolte pour la cause des siens.</p>
+                            <p>Le destin de ces trois héros est entre vos mains, littéralement, car Detroit: Become Human est un jeu à embranchements où vos choix vont déterminer le cours de l’histoire.</p>
+                        <h3>Une narration interactive aux multiples embranchements</h3>
+                            <p>Detroit: Become Human se présente presque comme un film interactif. C’est un jeu narratif : l’accent est mis sur l’histoire et les personnages, tandis que la jouabilité consiste essentiellement à faire des choix, à explorer des environnements pour trouver des informations, et à réussir des scènes d’action contextuelles. Concrètement, le gameplay alterne entre des phases d’enquête/dialogue et des phases d’action QTE (j’expliquerai ce terme juste après).</p>
+                            <p>Lors des phases calmes, vous déplacez votre personnage dans la scène (par exemple, Connor inspectant une pièce de crime pour trouver des indices, ou Kara se déplaçant dans une maison pour s’occuper des tâches ménagères). À certains moments cruciaux, le jeu vous propose une décision : par exemple, répondre quelque chose de gentil ou d’hostile à un personnage, secourir X au lieu de poursuivre Y, cacher ou non un secret, etc. Ces choix sont souvent timés, c’est-à-dire que vous avez un temps limité pour décider, ce qui ajoute à la pression dramatique.</p>
+                            <p>Ce qui rend Detroit passionnant, c’est que chaque choix peut avoir des conséquences importantes. Le scénario est non linéaire : il peut bifurquer radicalement selon vos actions.</p>
+                            <p>Un personnage peut mourir définitivement si vous échouez une scène, vous privant de son arc narratif pour la suite. Une décision morale que vous prenez tôt peut influencer la confiance qu’un autre protagoniste vous accordera plus tard, ou même changer le sort d’un groupe entier de personnages. En somme, vous façonnez votre propre histoire parmi des dizaines de scénarios possibles.</p>
+                            <div class="detroit-flowchart">
+                                <p>Pour les novices, cela peut sembler vertigineux, mais le jeu est très bien conçu pour que votre histoire à vous soit cohérente et satisfaisante, quel que soit le chemin emprunté. Après chaque chapitre, un “flowchart” (organigramme) vous montre les embranchements que vous avez pris et ceux que vous avez manqués, sans révéler ce qu’ils contiennent, incitant à la rejouabilité. Par exemple, dans une scène d’enquête, si vous avez raté un indice, peut-être qu’une option de dialogue ne s’est pas ouverte plus tard, modifiant l’issue de la négociation. Ce n’est pas grave en soi : vous voyez ce que vous avez manqué, et la fin du chapitre que vous avez obtenue. Le jeu encourage à rejouer si l’on veut tout voir, mais ce n’est pas obligatoire pour apprécier l’aventure.</p>
+                                <img src="detroit-flowchart.png" alt="Exemple de flowchart dans Detroit: Become Human" id="detroit-flowchart">
+                            </div>
+                            <p>Le deuxième aspect de gameplay, ce sont les scènes d’action sous forme de QTE (Quick Time Events). Un QTE est une séquence interactive où il faut appuyer rapidement sur les boutons indiqués à l’écran pour réaliser une action héroïque, esquiver un coup, tirer au bon moment, etc.</p>
+                            <div class="detroit-qte">
+                                <p>Typiquement, pendant une poursuite en parkour sur les toits, le jeu va afficher “pressez △ pour sauter” ou “flèche gauche pour esquiver l’obstacle” en temps réel, et si vous réussissez ou ratez, la scène continue différemment (raté trop de QTE ? le suspect vous échappe ; réussi parfaitement ? vous l’attrapez, par exemple). Ces QTE demandent un peu de réflexes, mais les niveaux de difficulté ajustables du jeu permettent aux débutants de ne pas être trop pénalisés (en mode facile, les QTE sont moins nombreux et plus lents). L’objectif est vraiment de vous faire vivre l’action de manière immersive, sans que ce soit trop frustrant.</p>
+                                <video autoplay loop muted>
+                                    <source src="detroit-qte.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <p>En résumé, Detroit: Become Human est comme un thriller interactif. On y retrouve l’atmosphère d’un bon film de science-fiction, sauf que vous êtes aux commandes des décisions clés. C’est pourquoi on parle de narration interactive non linéaire : vous créez votre propre version de l’histoire parmi une myriade de variantes. Le jeu propose même des fins extrêmement différentes les unes des autres en fonction de vos choix finaux, allant du dénouement tragique au dénouement optimiste. Ce qui donne vraiment le sentiment d’avoir influé sur le destin du monde du jeu. Peu de jeux poussent cette idée aussi loin : Detroit est souvent cité comme ayant “le nouveau standard d’or du choix significatif en jeu vidéo”, pour reprendre les mots d’un critique, tant ses embranchements peuvent être profonds et changer la donne jusqu’à la dernière scène.</p>
+                        <h3>Une réalisation digne du cinéma et un thème profondément humain</h3>
+                            <p>Detroit: Become Human est développé par le studio français Quantic Dream, connu pour ses jeux narratifs cinématographiques (<em>Heavy Rain</em>, <em>Beyond: Two Souls</em>, etc.). Avec Detroit, ils ont mis la barre encore plus haut en termes de réalisation audiovisuelle. Le jeu utilise massivement la <em>motion capture</em> et surtout la <em>performance capture</em> : cela signifie que les scènes ont été jouées par de véritables acteurs, dont on a enregistré simultanément le jeu de corps, de voix et les expressions faciales, le tout retranscrit fidèlement sur les modèles 3D des personnages.</p>
+                            <p>En clair, c’est comme si on avait tourné un film, mais au lieu de capturer l’image des acteurs, on capture leurs mouvements et émotions pour les appliquer aux androïdes virtuels. Le résultat est bluffant : Detroit est l’un des jeux les plus impressionnants de son époque en matière de réalisme des personnages.</p>
+                            <p>On lit la détresse ou la détermination dans le regard de Kara, et la moindre mimique de Connor ou Markus est crédible. La frontière entre cinématique et phase jouable est quasiment invisible, ce qui pour un nouveau joueur est souvent très appréciable : on a l’impression de “jouer un film” en permanence.</p>
+                            <p>L’aspect visuel est soutenu par une direction artistique soignée. Détroit 2038 est à la fois familier (on reconnaît des quartiers inspirés du réel, la décrépitude de certains ghettos, les gratte-ciels du centre-ville) et subtilement futuriste : vitrines d’androïdes à vendre dans les rues, taxis automatiques qui glissent silencieusement, écrans un peu partout… Une science-fiction “proche de nous”, crédible, renforcée par des détails comme des magazines virtuels qu’on peut lire dans le jeu, parlant de sujets d’actualité de cet univers (par exemple les débats éthiques sur les androïdes, le chômage dû à l’automatisation, etc.). Cette crédibilité du monde renforce l’implication : on s'imagine dans 10-15 ans dans un tel monde.</p>
+                            <p>La bande-son, quant à elle, est très particulière : chaque personnage principal a son compositeur dédié et son style musical distinct (une idée originale !). Ainsi, les morceaux liés à Kara sont au piano, très émotionnels (composés par Philip Sheppard), ceux de Connor sont plus électroniques et froids (composés par Nima Fakhrara) et ceux de Markus orchestraux et intenses (John Paesano). Ces trois musiciens ont travaillé de concert pour donner une identité sonore à chaque fil narratif. Au final, l’ambiance sonore s’adapte aux choix : une scène pacifique aura une musique feutrée, tandis qu’une révolte prendra des chœurs épiques si vous optez pour la lutte violente. Ce procédé renforce encore le sentiment d’avoir son propre film à la carte.</p>
+                            <p>Sur le plan du scénario, sans trop en dévoiler, Detroit: Become Human aborde des thèmes universels et profonds. Le jeu questionne clairement la notion d’humanité : qu’est-ce qui fait de nous des êtres humains ? Si une machine commence à ressentir des émotions, mérite-t-elle les mêmes droits ? On y parle d’esclavage moderne (les androïdes traités en objets), de discrimination (les androïdes “déviants” traqués et victimes de préjugés), de liberté et de rébellion face à l’oppression. Les parallèles avec des luttes bien réelles de l’histoire (droits civiques, apartheid, etc.) sont évidents et assumés.</p>
+                            <div class="detroit-characters">
+                                <div class="detroit-markus">
+                                    <img src="detroit-markus.png" alt="Markus, l'un des personnages principaux de Detroit: Become Human" id="detroit-markus">
+                                    <p>À travers les yeux de Markus notamment, on vit la montée d’un mouvement de protestation androïde et on doit choisir s’il sera violent ou pacifiste. Vos choix peuvent mener à un soulèvement sanglant, à une révolution pacifique façon Gandhi, ou à un échec total du mouvement, c’est vous qui écrivez cette page de l’histoire du jeu.</p> 
+                                </div>
+                                <div class="detroit-kara">
+                                    <p>De même, Kara incarne une quête plus intime, presque maternelle, de protéger une enfant vulnérable dans un monde dangereux : son parcours évoque des thèmes de famille, d’amour inconditionnel, mais aussi des questions sociales comme les abus domestiques.</p>
+                                    <img src="detroit-kara.png" alt="Kara, l'un des personnages principaux de Detroit: Become Human" id="detroit-kara">
+                                </div>
+                                <div class="detroit-connor">
+                                    <img src="detroit-connor.jpg" alt="Connor, l'un des personnages principaux de Detroit: Become Human" id="detroit-connor">
+                                    <p>Connor, lui, est pris entre son programme (obéir aux ordres) et la progressive compréhension de ce qu’est la morale et l’amitié (sa relation avec le lieutenant Hank, un humain bourru, est l’une des meilleurs du jeu). Ces trois trajectoires se croisent et se répondent, offrant un récit choral riche et prenant.</p>
+                                </div>
+                            </div>
+                            <p>La beauté de Detroit, c’est que le jeu ne fait pas la morale de façon univoque : c’est vos actions qui détermineront la morale de l’histoire. Par exemple, le jeu peut se terminer sur un message d’espoir et de coexistence… ou sur une note beaucoup plus sombre selon ce que vous aurez fait. Durant l’aventure, on se surprend à réfléchir à nos valeurs : “Est-ce que je suis prêt à sacrifier tel personnage pour le bien commun ? Jusqu’où irais-je pour la liberté ?”. En cela, Detroit: Become Human est immersif et impactant d’une manière unique, car il rend le joueur acteur éthique de son récit.</p>
+                            <p>Du point de vue technique, le jeu a également été un succès. Il a été salué pour sa réalisation, ses multiples scénarios et la qualité de l’interprétation de ses acteurs (parmi lesquels Valorie Curry, Bryan Dechart, Jesse Williams, Clancy Brown… des noms que les fans de séries connaissent peut-être).</p>
+                            <p>Au niveau des chiffres, Detroit a été le meilleur lancement de l’histoire du studio Quantic Dream et, six ans après sa sortie, il avait dépassé les 10 millions de copies vendues à travers le monde, ce qui est énorme pour un jeu narratif (un genre habituellement moins grand public).</p>
+                            <p>La presse française et internationale a globalement bien accueilli le titre, même si certains lui ont reproché un traitement un peu “appuyé” des thématiques par moments. Quoi qu’il en soit, Detroit: Become Human reste à ce jour l’un des jeux de référence en matière de “films interactifs” et prouve brillamment que le jeu vidéo peut raconter des histoires complexes tout en impliquant directement le joueur.</p>
+                        <h3>Mon ressenti en jouant à Detroit: Become Human</h3>
+                            <p>Rare sont les jeux qui m’ont autant impliqué émotionnellement dans mes choix.<br> Après ma première run (où, malgré quelques erreurs, j’ai réussi à avoir une fin relativement heureuse pour la plupart des personnages), j’étais curieux de voir “les autres côtés” de l’histoire. J’ai donc recommencé certaines scènes en prenant volontairement des décisions différentes, et j’ai été bluffé de découvrir que des chapitres entiers du scénario pouvaient basculer. C'est ce que j’adore avec <strong>Detroit</strong>, sa rejouabilité.</p>
+                            <p>J’ai découvert des chapitres entiers que je n’avais pas vus la première fois, car ils étaient conditionnés à la survie ou la mort de tel personnage. C’était presque comme regarder une série en explorant des épisodes cachés selon nos choix. Cette construction m’a fait encore plus apprécier le travail titanesque derrière le scénario. Quand on voit dans les bonus que le script faisait plus de 2000 pages et que les acteurs ont tourné des dizaines de versions alternatives de chaque scène, on comprend mieux pourquoi le jeu nous donne cette impression d’arborescence vivante.</p>
+                            <p>En tant que joueur, <em>Detroit: Become Human</em> m’a aussi permis de vivre un thriller de science-fiction de l’intérieur. J’ai ressenti de l’empathie pour des personnages fictifs au point d’avoir peur de les perdre. À un moment, j’ai même préféré rater un QTE et encaisser un échec plutôt que de prendre un risque qui aurait pu lui coûter vie. On s'attache et s'identifie à certains personnages malgré nous.</p>
+                            <p>D’ailleurs, fun fact : Mon personnage préféré est <strong>Connor</strong>, l’androïde enquêteur ; j’ai adoré suivre son parcours et son évolution, d’autant plus qu’il forme avec le lieutenant Hank un duo à la fois touchant et fascinant. Leur relation particulière soulève de nombreuses réflexions sur le devoir, l’empathie et la notion d’humanité. Ce n’est pas anodin : ça montre comment Detroit a réussi à créer un univers où chacun peut trouver un écho à ses propres valeurs. Certains se reconnaissent plus en <strong>Connor</strong> avec son dilemme devoir/émotion, d’autres en <strong>Kara</strong> avec son instinct protecteur, d’autres en <strong>Markus</strong> avec ses aspirations révolutionnaires.</p>
+                            <p>Enfin, <em>Detroit: Become Human</em> a suscité chez moi des réflexions post-jeu sur la thématique des IA et des droits. Bien sûr, on n’en est pas encore à avoir des androïdes domestiques, mais les questions posées par le jeu résonnent avec l’actualité de l’intelligence artificielle, de l’automatisation, etc. Après avoir fini le jeu, je me suis surpris à imaginer : « Si un jour Alexa (l’IA d’Amazon) ou Gemini (l’IA de Google) avait des sentiments, comment faudrait-il les traiter ? » Peu de jeux ont eu l’occasion de me donner ce genre de réflexions philosophiques.</p>
+                            <p>En conclusion, <strong>Detroit: Become Human</strong> est un jeu que j’ai non seulement aimé jouer, mais aussi aimé rejouer et discuter. C’est typiquement l’expérience qu’on a envie de partager : j’en ai parlé autour de moi comme on parlerait d’une série : chacun racontait la fin qu’il avait obtenue et s’étonnait de voir qu’un personnage pouvait mourir à tel moment alors que, dans ma partie, il avait survécu, changeant ainsi toute l’histoire.</p>
+                            <p>Si vous cherchez un jeu qui mélange le meilleur du cinéma (histoire prenante, réalisation soignée) et du jeu (interaction, adrénaline de faire des choix), <strong>Detroit</strong> offre ce mélange parfait. Pour ma part, il m’a confirmé que mes émotions de joueur sont d’autant plus fortes quand je suis maître du scénario. Et même si tout n’est pas parfait, l’ensemble m’a laissé un souvenir impérissable.</p>
+                            <a class="bouton-youtube" href="https://www.youtube.com/watch?v=zSm_M3wsllg&ab_channel=PlayStationFrance" target="_blank" rel="noopener"><span class="play">▶</span> Regarder le trailer</a>
+                    </article>
+                    <a href="#scroll-detroit" class="bouton-scroll scroll-detroit" aria-label="Retour aux vignettes Detroit">↑</a>
+                    <p><a href="#close">Fermer</a></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p class="signature">Fait par Nicolas TOLANTIN</p>
+            <img src="logo-feelings-quest-align-white 2.png" alt="Logo Feelings Quest" class="logo-footer">
+            <a class="mail" href="mailto:tolantin.n@gmail.com">Contact : tolantin.n@gmail.com</a>
+        </div>
+    </footer>
+</body>
+</html>
