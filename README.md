@@ -16,7 +16,7 @@ Je l’ai ensuite présenté tel quel pour appuyer ma candidature à la formatio
 
 Par nostalgie, j’ai choisi de le laisser tel qu’il était à l’époque, car il représente le point de départ de mon parcours.
 
-C’est également avec ce projet que j’ai enchaîné sur mon second site : **Draft Tactics**.
+C’est également avec ce projet que j’ai enchaîné sur mon second site : **Draft Tactik**.
 
 ---
 
