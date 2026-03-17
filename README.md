@@ -1,4 +1,4 @@
-![preview](./preview Feelings-Quest.png)
+![preview](./preview.png)
 
 # Feelings Quest 🎮
 
