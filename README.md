@@ -10,7 +10,7 @@ C’est avec ce projet que j’ai découvert concrètement ce qu’était le dé
 
 Ce site a été réalisé pendant ma période d’auto-formation, avant mon entrée à l’ENI.
 
-Je l’ai ensuite présenté tel quel pour appuyer ma candidature à la formation, sans chercher à le “parfaire”.
+Je l’ai ensuite présenté tel quel pour appuyer ma candidature à la formation. Je n'ai pas cherché à le “parfaire” depuis.
 
 👉 C’est donc un projet que j’ai volontairement conservé dans son état d’origine.
 
