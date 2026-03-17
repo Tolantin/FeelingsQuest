@@ -1,3 +1,5 @@
+![preview](./preview Feelings-Quest.png)
+
 # Feelings Quest 🎮
 
 Feelings Quest est mon **tout premier site web**.
