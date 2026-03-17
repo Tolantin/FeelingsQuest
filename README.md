@@ -12,7 +12,7 @@ Ce site a été réalisé pendant ma période d’auto-formation, avant mon entr
 
 Je l’ai ensuite présenté tel quel pour appuyer ma candidature à la formation. Je n'ai pas cherché à le “parfaire” depuis.
 
-👉 C’est donc un projet que j’ai volontairement conservé dans son état d’origine.
+👉 C’est un projet que j’ai volontairement conservé dans son état d’origine.
 
 Par nostalgie, j’ai choisi de le laisser tel qu’il était à l’époque, car il représente le point de départ de mon parcours.
 
